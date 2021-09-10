@@ -30,7 +30,11 @@ class CountryDetailsVC: UIViewController {
             stopPreloder()
             switch result {
             case .success(let response):
-                countryDetailsListArray = response
+                if !response.isEmpty {
+                    countryDetailsListArray = response
+                } else {
+                    IMUtility.showAlert(sender: self, title: "App Title Name", message: "No data found for your selection..!")
+                }
                 countryDetailsListArray.sort(by: { $0.date.compare($1.date) == .orderedDescending })
                 DispatchQueue.main.async {
                     countryDetailsTabelView.reloadData()

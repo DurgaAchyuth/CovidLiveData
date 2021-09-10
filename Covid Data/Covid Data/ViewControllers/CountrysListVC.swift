@@ -35,7 +35,12 @@ class CountrysListVC: UIViewController {
             stopPreloder()
             switch result {
             case .success(let response):
-                countryListArray = response
+                if !response.isEmpty {
+                    countryListArray = response
+                } else {
+                    IMUtility.showAlert(sender: self, title: "App Title Name", message: "No data found..!")
+                }
+
                 DispatchQueue.main.async {
                     countryListsTabelView.reloadData()
                 }

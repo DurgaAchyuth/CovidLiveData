@@ -11,7 +11,13 @@ import CoreData
 
 struct IMUtility {
     
-    static func convertDate(dateString: String) -> String {
+    public static func showAlert(sender: UIViewController, title: String, message: String) {
+        let alertView = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertView.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+        sender.present(alertView, animated: true, completion: nil)
+    }
+    
+    public static func convertDate(dateString: String) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "en_US_POSIX")
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
@@ -22,7 +28,7 @@ struct IMUtility {
     }
     
     
-    static func saveCountryName(saveData: String) {
+    public static func saveCountryName(saveData: String) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let managedContext = appDelegate.persistentContainer.viewContext
         let userEntity = NSEntityDescription.entity(forEntityName: "CountryNames", in: managedContext)!
@@ -36,7 +42,7 @@ struct IMUtility {
         }
     }
     
-    static func retrieveData() -> [String] {
+    public static func retrieveData() -> [String] {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return [] }
         let managedContext = appDelegate.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "CountryNames")
