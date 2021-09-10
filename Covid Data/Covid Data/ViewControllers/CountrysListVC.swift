@@ -18,15 +18,23 @@ class CountrysListVC: UIViewController {
     
     var countryListArray = [CountrysList]()
     var searchedList: [CountrysList] = []
-    var fetchedCountryNames = [String]()
+    var fetchedCountryNames = [String]() {
+        didSet {
+            namesCollectionview.reloadData()
+        }
+    }
     var searching = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         countrySearchbar.delegate = self
         callCountryLists()
-        fetchedCountryNames = IMUtility.retrieveData()
         startPreloader()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        fetchedCountryNames = IMUtility.retrieveData()
         showSavedData()
     }
     
@@ -151,6 +159,15 @@ extension CountrysListVC: UICollectionViewDelegate, UICollectionViewDataSource {
         let namesList = fetchedCountryNames[indexPath.row]
         cell!.nameLabel.text = namesList
         return cell!
+    }
+    
+    func collectionView(_: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let selectedName = fetchedCountryNames[indexPath.row]
+        let status = IMUtility.deleteData(selectedName: selectedName)
+        if status {
+            fetchedCountryNames = IMUtility.retrieveData()
+            showSavedData()
+        }
     }
 
     func collectionView(_ collectionView: UICollectionView, layout _: UICollectionViewLayout, sizeForItemAt _: IndexPath) -> CGSize {

@@ -46,7 +46,7 @@ struct IMUtility {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return [] }
         let managedContext = appDelegate.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "CountryNames")
-    
+        CDDefaluts.savedCountryNames = []
         do {
             let result = try managedContext.fetch(fetchRequest)
             for data in result as! [NSManagedObject] {
@@ -59,5 +59,39 @@ struct IMUtility {
         }
         return CDDefaluts.savedCountryNames
     }
+    
+    public static func deleteData(selectedName: String) -> Bool {
+        var status: Bool = false
+       guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return status}
+       let managedContext = appDelegate.persistentContainer.viewContext
+       
+       let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "CountryNames")
+       fetchRequest.predicate = NSPredicate(format: "name = %@", selectedName)
+      
+       do
+       {
+           let test = try managedContext.fetch(fetchRequest)
+           
+           let objectToDelete = test[0] as! NSManagedObject
+           managedContext.delete(objectToDelete)
+           
+           do{
+               try managedContext.save()
+            status = true
+           }
+           catch
+           {
+            status = true
+               print(error)
+           }
+           
+       }
+       catch
+       {
+        status = true
+           print(error)
+       }
+        return status
+   }
 }
 
