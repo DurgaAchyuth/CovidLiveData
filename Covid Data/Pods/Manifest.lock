@@ -1,16 +1,22 @@
 PODS:
   - Alamofire (5.4.3)
+  - NVActivityIndicatorView (5.1.1):
+    - NVActivityIndicatorView/Base (= 5.1.1)
+  - NVActivityIndicatorView/Base (5.1.1)
 
 DEPENDENCIES:
   - Alamofire (= 5.4.3)
+  - NVActivityIndicatorView (~> 5.1)
 
 SPEC REPOS:
   trunk:
     - Alamofire
+    - NVActivityIndicatorView
 
 SPEC CHECKSUMS:
   Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
+  NVActivityIndicatorView: 1f6c5687f1171810aa27a3296814dc2d7dec3667
 
-PODFILE CHECKSUM: debce858b1691f7e58925d84c54690c4c781809f
+PODFILE CHECKSUM: a298e9f5ebf81ac65d83585a0162d461685214e9
 
 COCOAPODS: 1.11.0

@@ -30,6 +30,9 @@
 		EB67474626EB8F3400A02695 /* CountryDetailsListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB67474326EB8F3300A02695 /* CountryDetailsListCell.swift */; };
 		EB67474D26EB8F5A00A02695 /* CountrysListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB67474B26EB8F5A00A02695 /* CountrysListVC.swift */; };
 		EB67474E26EB8F5A00A02695 /* CountryDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB67474C26EB8F5A00A02695 /* CountryDetailsVC.swift */; };
+		EB67475826EB922D00A02695 /* NVActivityIndicatorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB67475626EB922D00A02695 /* NVActivityIndicatorPresenter.swift */; };
+		EB67475926EB922D00A02695 /* NVActivityIndicatorViewable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB67475726EB922D00A02695 /* NVActivityIndicatorViewable.swift */; };
+		EB67476626EB92E000A02695 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB67476526EB92E000A02695 /* Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +88,9 @@
 		EB67474326EB8F3300A02695 /* CountryDetailsListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryDetailsListCell.swift; sourceTree = "<group>"; };
 		EB67474B26EB8F5A00A02695 /* CountrysListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountrysListVC.swift; sourceTree = "<group>"; };
 		EB67474C26EB8F5A00A02695 /* CountryDetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryDetailsVC.swift; sourceTree = "<group>"; };
+		EB67475626EB922D00A02695 /* NVActivityIndicatorPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorPresenter.swift; sourceTree = "<group>"; };
+		EB67475726EB922D00A02695 /* NVActivityIndicatorViewable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorViewable.swift; sourceTree = "<group>"; };
+		EB67476526EB92E000A02695 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,8 +206,10 @@
 		EB67472626EB8EC200A02695 /* CustomeClases */ = {
 			isa = PBXGroup;
 			children = (
+				EB67475526EB922D00A02695 /* NVActivityIndicatorViewExtended */,
 				EB67472726EB8EC200A02695 /* CDDefaluts.swift */,
 				EB67472826EB8EC200A02695 /* IMUtility.swift */,
+				EB67476526EB92E000A02695 /* Extension.swift */,
 			);
 			path = CustomeClases;
 			sourceTree = "<group>";
@@ -244,6 +252,15 @@
 			name = ViewControllers;
 			path = "Covid Data/ViewControllers";
 			sourceTree = SOURCE_ROOT;
+		};
+		EB67475526EB922D00A02695 /* NVActivityIndicatorViewExtended */ = {
+			isa = PBXGroup;
+			children = (
+				EB67475626EB922D00A02695 /* NVActivityIndicatorPresenter.swift */,
+				EB67475726EB922D00A02695 /* NVActivityIndicatorViewable.swift */,
+			);
+			path = NVActivityIndicatorViewExtended;
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
@@ -492,12 +509,15 @@
 				EB67474526EB8F3400A02695 /* CountryListCell.swift in Sources */,
 				EB6746F426EB885700A02695 /* Covid_Data.xcdatamodeld in Sources */,
 				EB67473426EB8EE800A02695 /* APIConstants.swift in Sources */,
+				EB67476626EB92E000A02695 /* Extension.swift in Sources */,
 				EB67474D26EB8F5A00A02695 /* CountrysListVC.swift in Sources */,
+				EB67475926EB922D00A02695 /* NVActivityIndicatorViewable.swift in Sources */,
 				EB67474626EB8F3400A02695 /* CountryDetailsListCell.swift in Sources */,
 				EB67472926EB8EC200A02695 /* CDDefaluts.swift in Sources */,
 				EB67474426EB8F3400A02695 /* SavedCountryNamesListCell.swift in Sources */,
 				EB6746EA26EB885700A02695 /* AppDelegate.swift in Sources */,
 				EB6746EC26EB885700A02695 /* SceneDelegate.swift in Sources */,
+				EB67475826EB922D00A02695 /* NVActivityIndicatorPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

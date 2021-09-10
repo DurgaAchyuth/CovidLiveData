@@ -26,12 +26,13 @@ class CountrysListVC: UIViewController {
         countrySearchbar.delegate = self
         callCountryLists()
         fetchedCountryNames = IMUtility.retrieveData()
+        startPreloader()
         showSavedData()
-        print(fetchedCountryNames)
     }
     
     func callCountryLists() {
         APIClient.getCountryNames() { [self] result in
+            stopPreloder()
             switch result {
             case .success(let response):
                 countryListArray = response

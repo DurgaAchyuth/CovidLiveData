@@ -6,6 +6,7 @@ target 'Covid Data' do
   use_frameworks!
 
   pod 'Alamofire',      '5.4.3'
+  pod 'NVActivityIndicatorView', '~> 5.1'
 
   target 'Covid DataTests' do
     inherit! :search_paths

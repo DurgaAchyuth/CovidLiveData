@@ -19,7 +19,7 @@ class CountryDetailsVC: UIViewController {
         countryNameLabel.text = selectedCountry
         let countryName:String = selectedCountry.replacingOccurrences(of: " ", with: "-")
         ApiConstants.DataShareingKeys.countryName = countryName
-        print(ApiConstants.DataShareingKeys.countryName)
+        startPreloader()
         callReportByCountryName()
         IMUtility.saveCountryName(saveData: selectedCountry)
         
@@ -27,6 +27,7 @@ class CountryDetailsVC: UIViewController {
     
     func callReportByCountryName() {
         APIClient.getReportBtCountry() { [self] result in
+            stopPreloder()
             switch result {
             case .success(let response):
                 countryDetailsListArray = response
